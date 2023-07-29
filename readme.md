@@ -58,13 +58,9 @@ A seguir, uma breve descrição de cada tabela:
 
 - Inicialmente foi criado uma planilha como base para inicio do banco de dados, após foi feita a criação do diagrama no dbDiagram.Io.
 
-[planilha](./esquemas/tabela%20em%20planilha.pdf)
+![planilha](./esquemas/tabela%20em%20planilha.pdf)
 
 ![imagem do dbDiagram](./esquemas/diagrama_dbDiagram.png)
 
 -Após a criação do banco de dados foi feuta a engenharia reversa para obter o diagrama direto pelo MySQL Workbench.
 ![engenharia reversa](./esquemas/diagrama_engenharia_reversa.png)
-
----(image.png)
-
-Esse é o README para o seu projeto de Sistema de Gerenciamento de Biblioteca. Lembre-se de mantê-lo atualizado e incluir todas as informações necessárias para que outros desenvolvedores possam entender e utilizar o sistema adequadamente. Boa sorte com o seu projeto!
