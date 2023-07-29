@@ -1,6 +1,8 @@
+-- CRIA UM BANCO DE DADOS CHAADA BIBLIOTECA
 create database if not exists `BIBLIOTECA`;
 use `BIBLIOTECA`;
 
+-- CRIA UMA TABELA DE CADASTRO PARA RECEBER DADOS DE ENDEREÇO.
 CREATE TABLE `tabelaCadastro` (
     `id_cadastro` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `logradouro` VARCHAR(100) NOT NULL,
@@ -12,6 +14,7 @@ CREATE TABLE `tabelaCadastro` (
     `email` VARCHAR(100) NOT NULL
 );
 
+-- CRIA UMA TABELA DE FUNCIONARIO E RECEBE O NOME DOS FUNCIONARIOS.
 CREATE TABLE `tabelaFuncionario` (
     `id_funcionario` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `nomeFuncionario` VARCHAR(50) NOT NULL,
@@ -20,6 +23,7 @@ CREATE TABLE `tabelaFuncionario` (
         REFERENCES `tabelaCadastro` (`id_cadastro`)
 );
 
+-- CRIA UMA TABELA DE USUARIO E RECEBE ALGUNS DADOS A MAIS REFERENTE A CADASTRO.
 CREATE TABLE `tabelaUsuario` (
     `id_usuario` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `nomeUsuario` VARCHAR(50) NOT NULL,
@@ -30,6 +34,7 @@ CREATE TABLE `tabelaUsuario` (
         REFERENCES `tabelaCadastro` (`id_cadastro`)
 );
 
+-- CRIA UMA TABELA DE DEVOLUÇÃO PARA CONTROLE DE DEVOLUÇOES.
 CREATE TABLE `tabelaDevolucao` (
     `id_devolucao` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `dataDevolucao` DATE NOT NULL,
@@ -38,18 +43,21 @@ CREATE TABLE `tabelaDevolucao` (
         REFERENCES `tabelaFuncionario` (`id_funcionario`)
 );
 
+-- CRIA UMA TABELA DE EDITORA COM NOMES DELAS.
 CREATE TABLE `tabelaEditora` (
     `id_editora` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `noemEditora` VARCHAR(40) NOT NULL,
     `cidadeEditora` VARCHAR(40) NOT NULL
 );
 
+-- CRIA UMA TABELA DE AUTORES.
 CREATE TABLE `tabelaAutor` (
     `id_autor` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `nomeAutor` VARCHAR(50) NOT NULL,
-    `nacinalidadeAutor` VARCHAR(50) NOT NULL
+    `nacionalidadeAutor` VARCHAR(50) NOT NULL
 );
 
+-- CRIA UMA TABELA DE OBRA PARA GUARDAR OS LIVROS.
 CREATE TABLE `tabelaObra` (
     `id_obra` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `titulo` VARCHAR(30) NOT NULL,
@@ -63,7 +71,7 @@ CREATE TABLE `tabelaObra` (
         REFERENCES `tabelaEditora` (`id_editora`)
 );
 
-
+-- CRIA UMA TABELA DE EMPRESTIMO PARA CONTROLE DE DIA DO EMPRESTIMO E UMA PREVISÃO DE ENTREGA.
 CREATE TABLE `tabelaEmprestimo` (
     `id_emprestimo` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `dataEmprestimo` DATE NOT NULL,
@@ -79,6 +87,7 @@ CREATE TABLE `tabelaEmprestimo` (
         REFERENCES `tabelaFuncionario` (`id_funcionario`)
 );
 
+-- CRIA UMA TABELA DE MULTA PARA GERAR UMA COBRANÇA CASO HAJA ATRAS NA DEVOLUÇAO DE LIVROS.
 CREATE TABLE `tabelaMulta` (
     `id_multa` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `dataMulta` DATE NOT NULL,
